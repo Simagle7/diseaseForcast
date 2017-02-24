@@ -1,0 +1,321 @@
+<!--样式区-->
+<style>
+    .ms-controller, .ms-important {
+        visibility: hidden;
+    }
+
+    .row {
+        margin-right: -15px;
+        margin-left: -15px;
+
+    }
+
+    .ibox {
+        clear: both;
+        margin-bottom: 25px;
+        margin-top: 0;
+        padding: 0;
+        background-color: rgba(197, 208, 220, 0.15);
+    }
+
+    .ibox-title {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        border-color: #e7eaec;
+        -webkit-border-image: none;
+        -o-border-image: none;
+        border-image: none;
+        border-style: solid solid none;
+        border-width: 4px 0 0;
+        color: inherit;
+        margin-bottom: 0;
+        padding: 14px 15px 7px;
+        min-height: 48px;
+    }
+
+    .ibox-title .span-1 {
+        margin: -3px 0;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        font-style: inherit;
+        float: left;
+    }
+
+    .ibox-title .span-2 {
+        color: #fff;
+        margin: -3px 0;
+        float: right;
+        background-color: #428bca;
+        font-size: 10px;
+        font-weight: 600;
+        padding: 5px 9px;
+        text-shadow: none;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: .25em;
+        display: inline;
+        line-height: 1;
+    }
+
+    .ibox-title div {
+        float: right;
+        margin: -2px 0;
+    }
+
+    .ibox-title div label > select {
+        width: 62px;
+        height: 21px;
+        padding-top: 0;
+    }
+    input[type='radio'] {
+        vertical-align: text-bottom;margin-bottom: 2px;*margin-bottom: -2px;
+    }
+
+    .ibox-content {
+        border-top: 1px solid #ededed;
+    }
+
+    .ibox-content {
+        clear: both;
+    }
+
+    .ibox-content {
+        color: inherit;
+        padding: 15px 20px 20px;
+        border-color: #e7eaec;
+        -webkit-border-image: none;
+        -o-border-image: none;
+        border-image: none;
+        border-style: solid solid none;
+        border-width: 1px 0;
+    }
+
+    .ibox-content .icon-up {
+        color: #1ab394;
+    }
+    .ibox-content .icon-down{
+        color: #ed5565;
+    }
+    .ibox-content .icon-normal{
+        color: #38bbff;
+    }
+
+    .ibox-content small {
+
+    }
+
+    .ibox-content h1 {
+        font-weight: 100;
+        line-height: 1.1;
+        display: block;
+        -webkit-margin-before: 0.67em;
+        -webkit-margin-after: 0.67em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        color: rgba(147, 147, 147, 0.85);
+        font-size: 30px;
+        margin: 15px 0;
+    }
+
+    .flot-chart {
+        display: block;
+        height: 250px;
+    }
+
+    .stat-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        height: 250px;
+    }
+
+    .stat-list li:first-child {
+        margin-top: 0;
+    }
+
+    .stat-list li {
+        margin-top: 15px;
+        position: relative;
+        text-align: -webkit-match-parent;
+        height: 33%;
+    }
+
+    .stat-percent {
+        float: right;
+    }
+
+    .no-margin {
+        margin: 0 !important;
+    }
+
+    .progress.progress-mini {
+        height: 5px;
+    }
+
+    h2 {
+        font-size: 30px;
+        font-weight: 120;
+        line-height: 1.1;
+        display: block;
+        -webkit-margin-before: 0.83em;
+        -webkit-margin-after: 0.83em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        color: rgba(49, 186, 223, 0.74);;
+    }
+
+    .table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    table {
+        background-color: transparent;
+    }
+
+    table {
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
+
+    .table > tbody > tr > th {
+        border-top: none;
+    }
+
+    .feed-element {
+        padding-bottom: 15px;
+    }
+    .feed-element, .feed-element .media {
+        margin-top: 15px;
+    }
+    .feed-element:first-child {
+        margin-top: 0;
+    }
+    .feed-activity-list .feed-element {
+        border-bottom: 1px solid #e7eaec;
+    }
+    .feed-element, .media-body {
+        overflow: hidden;
+    }
+    .text-navy {
+        color: #1ab394;
+    }
+    .text-muted {
+        color: #888;
+    }
+    .small, small {
+        font-size: 85%;
+    }
+    h5 {
+        display: block;
+        font-size: 0.83em;
+        -webkit-margin-before: 1.67em;
+        -webkit-margin-after: 1.67em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        font-weight: bold;
+    }
+
+    .search-btn{
+        background-color: #fff;
+        margin: 0;
+        padding: 0px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        width: 40px;
+    }
+    .search-btn:hover{
+        border: 1px solid rgba(147, 147, 147, 0.85);
+    }
+</style>
+
+<!--标签区-->
+<div id="listUser" ms-important="listUser" class="page-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <span class="span-1"><b><i class="fa fa-users"></i></b></span>
+                    <div>
+                        <label>性别：<select ms-duplex-number="sex" data-duplex-changed="queryIndentChart">
+                            <option value="-1">默认</option>
+                            <option value="0">男</option>
+                            <option value="1">女</option>
+                        </select></label>&nbsp;
+                        <label>年龄区间：<input ms-duplex-number="minAge" type="text" style="padding: 0;margin: 0; width: 35px;height: 19px"> - <input ms-duplex-number="maxAge" type="text" style="padding: 0;margin: 0; width: 35px;height: 19px"></label>
+                        <button class="search-btn" ms-click="queryUserMap">确定</button>
+                        <button class="search-btn" ms-click="clear">重置</button>
+                    </div>
+                </div>
+                <div class="ibox-content">
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <!-- 顶部操作-->
+                            <div class="top_bt">
+                                <a href="javascript:void(0);" ms-click="add"><i class="iconfont icon-zengjia"></i>&nbsp;添 加</a>
+                                <a href="javascript:void(0);" ms-click="deleteBatch"><i class="iconfont icon-shanchu"></i>&nbsp;删 除</a>
+                            </div>
+
+                            <table class="table_1">
+                                <tr>
+                                    <th width="5%"><input type="checkbox" ms-duplex-checked="allChecked"
+                                                          data-duplex-changed="checkAll"/></th>
+                                    <th width="13%">用户昵称</th>
+                                    <th width="13%">账号</th>
+                                    <th width="13%">电话</th>
+                                    <th width="20%">地址</th>
+                                    <th width="11%">创建时间</th>
+                                    <th width="5%">状态</th>
+                                    <th width="25%">操作</th>
+                                </tr>
+                                <tr ms-repeat="data">
+                                    <td width="5%"><input type="checkbox" ms-duplex-checked="el.checked" data-duplex-changed="checkOne"
+                                                          ms-attr-disabled="el.status===0"/></td>
+                                    <td>{{el.nickname}}</td>
+                                    <td>{{el.username}}</td>
+                                    <td>{{el.phone}}</td>
+                                    <td>{{el.address}}</td>
+                                    <td>{{el.createDate|date("yyyy-MM-dd")}}</td>
+                                    <td ms-if="el.status == 0"><span ms-class="enabled_text:el.status==0">启用</span></td>
+                                    <td ms-if="el.status == 1"><span ms-class="disabled_text:el.status==1">停用</span></td>
+                                    <td>
+                                        <input name="" type="button" ms-click="edit(el.id)" value="修改"/>
+                                        <input name="" type="button" value="启用" ms-if="el.status == 1" ms-click="disableOrEnable(0,el.id,0)"/>
+                                        <input name="" type="button" value="停用" ms-if="el.status == 0" ms-click="disableOrEnable(1,el.id,1)"/>
+                                        <input name="" type="button" value="删除" ms-if="el.status == 1" ms-click="deleteOne(el.id)"/>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div class="page_num">
+                                <a ms-class="disabled:pageNo===1" ms-click="selectPage(-9999)">首页</a>
+                                <a ms-class="disabled:pageNo===1" ms-click="selectPage(-1)">上页</a>
+                                <a ms-class="disabled:pageNo===total" ms-click="selectPage(1)">下页</a>
+                                <a ms-class="disabled:pageNo===total" ms-click="selectPage(9999)">末页</a>
+                                &emsp;当前第{{pageNo}}页/共{{total}}页，跳转至第
+                                <input typt="text" id="selectPageNo" ms-blur="toPage" value="1">
+                                页，每页
+                                <select id="pageSize" ms-change="selectSize">
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>50</option>
+                                    <option>100</option>
+                                </select>
+                                条，共<em>{{records}}</em>条记录
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="../../../js/sys/user/list.js"></script>

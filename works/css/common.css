@@ -200,7 +200,7 @@ div.form .remark{ text-align:left; padding:20px;}
 
 
 .top_bt{ padding:0 0 10px; text-align:left}
-.top_bt a{ line-height:25px; height:25px; display:inline-block; border:1px solid #dadada; background:#f1f1f1; color:#555555; text-align:center;border-radius:3px; padding:0 15px;}
+.top_bt a{ line-height:25px; height:25px; display:inline-block; border:1px solid #dadada; background:#f1f1f1; color:#555555; text-align:center;border-radius:3px; padding:0 5px;}
 .top_bt a input{ margin-right:5px; vertical-align:middle}
 .top_bt a:hover{border:1px solid #777;}
 .top_tit{ padding:8px 0; font-size:14px; color:#333; text-align:left}
