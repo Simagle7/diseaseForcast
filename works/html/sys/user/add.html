@@ -10,55 +10,37 @@
 
     <div class="form">
         <form id="addForm">
-            <div class=" user-edit ">
+            <div class=" user-edit">
                 <div class="remark"> 注：带 * 号为必填项</div>
                 <table class="table_1" cellpadding="0" cellspacing="0">
                     <tr>
                         <th width="20%"><span>*</span>账号：</th>
                         <td width="30"><input type="text" name="username"></td>
-                        <th width="20%"><span>*</span>密码：</th>
-                        <td width="30%"><input type="password" name="password"></td>
+                        <th width="20%"><span>*</span>创建时间：</th>
+                        <td width="30%">{{currentDate|date("yyyy-MM-dd")}}</td>
                     </tr>
 
                     <tr>
-                        <th width="20%"><span>*</span>用户头像：</th>
+                        <th width="20%"><span>*</span>密码：</th>
                         <td width="30%">
-                            <table class="upload_pic">
-                                <tr>
-                                    <td rowspan="2" >
-                                        <img ms-attr-src="headIcon" class="headIcon" width="94px" height="94px" id="headIcon"/>
-                                    </td>
-                                    <td>
-                                        <a style="border:1px solid #ccc;background: #429aca;padding:3px 7px;text-decoration: none;color:#fff;" ms-click="defaultHeadIcon">默认</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td id="showImg">
-                                        <a style="border:1px solid #ccc;background: #429aca;padding:3px 7px;text-decoration: none;color:#fff;" id="selectImg">选择图片</a>
-                                    </td>
-                                </tr>
-                            </table>
+                            <input type="text" name="password">
                         </td>
-                        <th width="20%">地址：</th>
-                        <td width="30%"><textarea cols="30" rows="10" width="200px" height="90px" name="address"></textarea></td>
+                        <th width="20%">工号：</th>
+                        <td width="30%"><input type="text" name="workNum"></td>
                     </tr>
                     <tr>
-                        <th width="20%">昵称：</th>
-                        <td width="30%"><input type="text" name="nickname"></td>
-                        <th width="20%"><span>*</span>电话：</th>
-                        <td width="30"><input type="text" name="phone"></td>
-                    </tr>
-                    <tr>
-                        <th width="20%"><span>*</span>用户身份</th>
-                        <td width="30%">
-                            <label><input type="checkbox" name="userType" style="vertical-align: -2px;" value="1" checked> 普通用户&nbsp;</label>
-                            <label><input type="checkbox" name="userType" style="vertical-align: -2px;" value="2"> 商家&nbsp;</label>
-                            <label><input type="checkbox" name="userType" style="vertical-align: -2px;" value="4"> 管理员</label>
-                        </td>
+                        <th width="20%">年龄：</th>
+                        <td width="30%"><input type="text" name="age"></td>
                         <th width="20%"><span>*</span>性别：</th>
-                        <td width="30%">
-                            <label><input type="radio" style="vertical-align: -2px;" name="sex" value="0" checked> 男&nbsp;</label>
-                            <label><input type="radio" style="vertical-align: -2px;" name="sex" value="1"> 女</label>
+                        <td width="30">
+                            <input type="radio" name="sex" value="0" checked>&nbsp;男&nbsp;&nbsp;
+                            <input type="radio" name="sex" value="1">&nbsp;女
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="20%"><span>*</span>职位</th>
+                        <td colspan="3">
+                            <input type="text" name="position">
                         </td>
                     </tr>
                 </table>
@@ -73,4 +55,4 @@
 
 
 <!--脚本区-->
-<script type="text/javascript" src="../../../js/sys/user/add.js"/>
+<script type="text/javascript" src="../../../js/sys/user/add.js" ></script>

@@ -8,7 +8,7 @@ var scripts = [null];
 ace.load_ajax_scripts(scripts, function () {
     avalon.ready(function () {
         var vm = avalon.define({
-            $id: "listUser",
+            $id: "listRole",
             currentDate: new Date(),
             pageNo: 1,      //页码
             pageSize: 10,   //页大小
@@ -45,7 +45,7 @@ ace.load_ajax_scripts(scripts, function () {
                 data += "&pageNo=" + vm.pageNo;
                 data += "&pageSize=" + vm.pageSize;
                 $.ajax({
-                    url: '/cn/df/user/queryPage',
+                    url: '/cn/df/authRole/queryPage',
                     dataType: 'json',
                     type: 'post',
                     data: data,
@@ -92,21 +92,21 @@ ace.load_ajax_scripts(scripts, function () {
 
             //添加
             add: function () {
-                ROOT.openDialog("/sys/user/add.html", {}, "添加用户", "650", "350", function () {
+                ROOT.openDialog("/auth/role/add.html", {}, "添加用户", "650", "350", function () {
                     vm.clear();    //重置
                 });
             },
 
             //修改
             edit: function (id) {
-                ROOT.openDialog("/sys/user/edit.html", {id: id}, "查看用户", "650", "350", function () {
+                ROOT.openDialog("/auth/role/edit.html", {id: id}, "查看用户", "650", "350", function () {
                     vm.clear();    //重置
                 });
             },
 
             //批量删除
             deleteBatch: function () {
-                layer.confirm('确定要删除所选用户？', {icon: 2},function (index) {
+                layer.confirm('确定要删除所选角色？', {icon: 2},function (index) {
                     var ids = [];
                     vm.data.forEach(function (el) {
                         if (el.checked) {
@@ -118,7 +118,7 @@ ace.load_ajax_scripts(scripts, function () {
                         return;
                     }
                     $.ajax({
-                        url: "/cn/df/user/deleteByIds",
+                        url: "/cn/df/authRole/deleteByIds",
                         type: "POST",
                         dataType: 'json',
                         data: {ids: ids.join(",")},
@@ -139,9 +139,9 @@ ace.load_ajax_scripts(scripts, function () {
 
             //单个删除
             deleteOne: function (id) {
-                layer.confirm('确定要删除该用户？', {icon: 2}, function (index) {
+                layer.confirm('确定要删除该角色？', {icon: 2}, function (index) {
                     $.ajax({
-                        url: "/cn/df/user/deleteOne",
+                        url: "/cn/df/authRole/deleteOne",
                         type: "GET",
                         dataType: "JSON",
                         data:{id: id},
@@ -167,9 +167,9 @@ ace.load_ajax_scripts(scripts, function () {
             disableOrEnable: function (status, id, flag) {
                 var action = flag === 1 ? "停用" : "启用";
                 var icon = flag === 1 ? 5 : 6;
-                layer.confirm('确定要' + action + '该用户！', {icon: icon}, function (index) {
+                layer.confirm('确定要' + action + '该角色！', {icon: icon}, function (index) {
                     $.ajax({
-                        url: "/cn/df/user/disabledOrEnabled",
+                        url: "/cn/df/authRole/disableOrEnable",
                         type: "POST",
                         dataType: "JSON",
                         data:{id: id, status:status},
@@ -220,7 +220,7 @@ ace.load_ajax_scripts(scripts, function () {
                 vm.queryPage();
             }
         });
-        avalon.scan($("#listUser")[0], vm);
+        avalon.scan($("#listRole")[0], vm);
         vm.init();
     });
 });

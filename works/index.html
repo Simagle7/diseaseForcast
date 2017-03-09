@@ -40,7 +40,7 @@
 <script src="assets/js/respond.min.js"></script>
 
 <![endif]-->
-<body class="no-skin" ms-controller="ROOT">
+<body class="no-skin" ms-controller="ROOT"  style="overflow-y:hidden">
 <div id="navbar" class="navbar navbar-default">
     <script type="text/javascript">
         try {
@@ -71,7 +71,7 @@
 </div>
 
 <div class="main-container" id="main-container">
-    <div id="sidebar" class="sidebar                  responsive">
+    <div id="sidebar" class="sidebar  responsive">
         <script type="text/javascript">
             try {
                 ace.settings.check('sidebar', 'fixed')
@@ -126,6 +126,46 @@
 
                 </ul>
             </li>
+            <li class="">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-cogs"></i>
+                    <span class="menu-text"> 权限管理 </span>
+
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+                    <li class="">
+                        <a  data-url="/auth/role/list.html" href="#/auth/role/list.html">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            角色管理
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                    <li class="">
+                        <a data-url="/auth/module/list.html" href="#/auth/module/list.html">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            模块管理
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="">
+                        <a data-url="/auth/operation/list.html" href="#/auth/operation/list.html">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            功能管理
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                </ul>
+            </li>
+
         </ul>
 
         <!-- 侧边栏最小化-菜单底部 -->
@@ -224,7 +264,7 @@
 <script type="text/javascript" src="libs/echarts/echarts-all.js"></script>
 <script type="text/javascript" src="libs/slimscroll/jquery.slimscroll.min.js"></script>
 <!-- 引入通用脚本 -->
-<!--<script type="text/javascript" src="js/common.js"></script>-->
+<script type="text/javascript" src="js/base.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <!--<script type="text/javascript" src="js/jquery.authController.js"></script>-->
 

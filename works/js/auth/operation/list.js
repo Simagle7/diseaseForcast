@@ -1,5 +1,6 @@
 /**
- * Created by simagle on 2016/4/13.
+ * Created by Katybaby
+ * 模块列表控制脚本
  */
 //本页面脚本列表
 var scripts = [null];
@@ -8,16 +9,36 @@ var scripts = [null];
 ace.load_ajax_scripts(scripts, function () {
     avalon.ready(function () {
         var vm = avalon.define({
-            $id: "listUser",
+            $id: "listOperation",
             currentDate: new Date(),
             pageNo: 1,      //页码
             pageSize: 10,   //页大小
             records: 0,     //总数
             total: 0,       //页数
             data: [],
-            username:null,  //用户名
-            workNum:null,   //工号
             allChecked: false,  //是否全选，默认为false
+            modules: [],
+            moduleCode:0,    //选中的模块代码
+            name:null,          //模块名称
+            queryModules: function () {
+                $.ajax({
+                    url: "/cn/df/authModule/queryModules",
+                    type: "GET",
+                    dataType: "JSON",
+                    data:{status: 0},
+                    beforeSend: function () {
+                        ROOT.openLoading();
+                    },
+                    complete: function () {
+                        ROOT.closeLoading();
+                    },
+                    success: function (result) {
+                        if (isSuccess(result)) {
+                            vm.modules = result.bizData;
+                        }
+                    }
+                })
+            },
 
             //勾选
             checkOne: function () {
@@ -41,14 +62,11 @@ ace.load_ajax_scripts(scripts, function () {
             },
             //分页查询
             queryPage: function () {
-                var data = $("#searchCondition").serialize();
-                data += "&pageNo=" + vm.pageNo;
-                data += "&pageSize=" + vm.pageSize;
                 $.ajax({
-                    url: '/cn/df/user/queryPage',
-                    dataType: 'json',
-                    type: 'post',
-                    data: data,
+                    url: '/cn/df/operation/queryPage',
+                    dataType: 'JSON',
+                    type: 'POST',
+                    data: {moduleCode:vm.moduleCode,name:vm.name, pageNo:vm.pageNo,pageSize:vm.pageSize},
                     beforeSend: function () {
                         ROOT.openLoading();
                     },
@@ -92,21 +110,21 @@ ace.load_ajax_scripts(scripts, function () {
 
             //添加
             add: function () {
-                ROOT.openDialog("/sys/user/add.html", {}, "添加用户", "650", "350", function () {
+                ROOT.openDialog("/auth/operation/add.html", {}, "添加操作", "650", "350", function () {
                     vm.clear();    //重置
                 });
             },
 
             //修改
             edit: function (id) {
-                ROOT.openDialog("/sys/user/edit.html", {id: id}, "查看用户", "650", "350", function () {
+                ROOT.openDialog("/auth/operation/edit.html", {id: id}, "修改操作", "650", "350", function () {
                     vm.clear();    //重置
                 });
             },
 
             //批量删除
             deleteBatch: function () {
-                layer.confirm('确定要删除所选用户？', {icon: 2},function (index) {
+                layer.confirm('确定要删除所选操作？', {icon: 2},function (index) {
                     var ids = [];
                     vm.data.forEach(function (el) {
                         if (el.checked) {
@@ -118,7 +136,7 @@ ace.load_ajax_scripts(scripts, function () {
                         return;
                     }
                     $.ajax({
-                        url: "/cn/df/user/deleteByIds",
+                        url: "/cn/df/operation/deleteByIds",
                         type: "POST",
                         dataType: 'json',
                         data: {ids: ids.join(",")},
@@ -139,9 +157,9 @@ ace.load_ajax_scripts(scripts, function () {
 
             //单个删除
             deleteOne: function (id) {
-                layer.confirm('确定要删除该用户？', {icon: 2}, function (index) {
+                layer.confirm('确定要删除该操作？', {icon: 2}, function (index) {
                     $.ajax({
-                        url: "/cn/df/user/deleteOne",
+                        url: "/cn/df/operation/deleteOne",
                         type: "GET",
                         dataType: "JSON",
                         data:{id: id},
@@ -167,9 +185,9 @@ ace.load_ajax_scripts(scripts, function () {
             disableOrEnable: function (status, id, flag) {
                 var action = flag === 1 ? "停用" : "启用";
                 var icon = flag === 1 ? 5 : 6;
-                layer.confirm('确定要' + action + '该用户！', {icon: icon}, function (index) {
+                layer.confirm('确定要' + action + '该操作！', {icon: icon}, function (index) {
                     $.ajax({
-                        url: "/cn/df/user/disabledOrEnabled",
+                        url: "/cn/df/operation/disableOrEnable",
                         type: "POST",
                         dataType: "JSON",
                         data:{id: id, status:status},
@@ -218,9 +236,10 @@ ace.load_ajax_scripts(scripts, function () {
             },
             init: function () {
                 vm.queryPage();
+                vm.queryModules();
             }
         });
-        avalon.scan($("#listUser")[0], vm);
+        avalon.scan($("#listOperation")[0], vm);
         vm.init();
     });
 });

@@ -4,7 +4,32 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<link rel="stylesheet" href="libs/SuperSlide/default.css">
 <body>
+<div ms-controller="login">
+    <form id="loginForm">
+        用户名：<input type="text" name="username">
+        密 码：<input type="text" name="password">
+    </form>
+    <button ms-click="login">确定</button>
+</div>
 
+<!--[if !IE]> 兼容ie -->
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='assets/js/jquery.min.js'>" + "<" + "/script>");
+</script>
+
+<!-- <![endif]-->
+
+<!--[if IE] 兼容ie -->
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='assets/js/jquery1x.min.js'>" + "<" + "/script>");
+</script>
+<script src="libs/avalon/avalon.shim.js" type="text/javascript"></script>
+<script src="libs/layer/layer.js" type="text/javascript"></script>
+<script src="libs/store/store.min.js" type="text/javascript"></script>
+<script src="libs/SuperSlide/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
+<script src="js/login.js" type="text/javascript"></script>
+<script src="js/base.js" type="text/javascript"></script>
 </body>
 </html>

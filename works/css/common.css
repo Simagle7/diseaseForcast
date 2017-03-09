@@ -71,7 +71,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
 .user-c select,input[type="text"]{ margin:0 10px 0 0;}
 .tj{ width:100%; border-bottom:1px solid #ededed; padding:8px 0; height:45px;}
 
-div.form .user-edit .remark{ padding:0 2%; height:40px; margin-bottom:20px; line-height:40px; background:#f2f2f2; border-bottom:1px solid #ddd; text-align:left;}
+div.form .user-edit .remark{ padding:0 2%; height:40px; margin-bottom:-1px; line-height:40px; background:#f2f2f2; border-bottom:1px solid #ddd; text-align:left;}
 .user-edit,.user-check{ width:100%; height:auto;}
 .user-check{ padding-top:20px;}
 .user-edit .table_1{ width:100%; border:1px solid #ddd; border-bottom:none;}
@@ -87,7 +87,7 @@ div.form .user-edit  span{color:#fff; line-height:28px; padding-right:3px;}
 .user-edit td .role-n{ width:130px; height:90px; overflow-y:scroll;}
 .user-edit .btn-role{ width:130px; height:90px;padding:20px; overflow:hidden;}
 .user-edit .btn-role input.main{ width:110px; height:28px; padding:5px; margin-bottom:20px; display:block; margin-left:auto; margin-right:auto;}
-.user-edit .user-btn{ background:#f2f2f2; border-top:1px solid #ddd; padding:10px; margin-top:20px;text-align: center;}
+.user-edit .user-btn{ background:#f2f2f2; border-top:1px solid #ddd; padding:10px; margin-top:10px;text-align: center;}
 input.oper{background:#F78B54; height:28px; padding:0 20px;  margin: 0 10px 0 0; color:#fff; border:none;}
 input.oper:hover{background:#F4A582;}
 
@@ -153,7 +153,7 @@ div.form .remark{ text-align:left; padding:20px;}
 .table_1 input:hover[type="button"]{ background:#428ebe;}
 .table_1 input[type="submit"]{ height:24px; padding:0 5px; margin:2px 3px; border:0; background:#87B87F; color:#fff; font-size:12px; overflow:visible;}
 .table_1 input:hover[type="submit"]{ background: #428ebe;}
-.table_1 textarea{ width:200px; height:100px; border:1px solid #ccc; padding:5px;}
+.table_1 textarea{ width:400px; height:100px; border:1px solid #ccc; padding:5px;}
 
 .table_1 td .mul{ width:100px; height:26px; display:inline-block; position:relative;}
 .table_1 td .mul input{ width:92px; height:24px; background:#f5f5f5; border:1px solid #ccc; border-radius:3px; padding:0 3px;}
@@ -200,7 +200,7 @@ div.form .remark{ text-align:left; padding:20px;}
 
 
 .top_bt{ padding:0 0 10px; text-align:left}
-.top_bt a{ line-height:25px; height:25px; display:inline-block; border:1px solid #dadada; background:#f1f1f1; color:#555555; text-align:center;border-radius:3px; padding:0 5px;}
+.top_bt a{ line-height:25px; height:25px; display:inline-block; border:1px solid #dadada; background:#f1f1f1; color:#555555; text-align:center;border-radius:3px; padding:0 5px; text-decoration: none}
 .top_bt a input{ margin-right:5px; vertical-align:middle}
 .top_bt a:hover{border:1px solid #777;}
 .top_tit{ padding:8px 0; font-size:14px; color:#333; text-align:left}
@@ -249,7 +249,53 @@ a.bt_org{ padding:0 10px; text-align:center; color:#fff; background:#428bca; dis
 .select_disable:disabled { background-color: #F2F2F2;cursor: not-allowed }
 /*.disabled { background-color: #F2F2F2;cursor: not-allowed }*/
 
-/* BI 分析页面*/
-.bi{
-    border-bottom: 1px solid #ededed;
+/* 内容页*/
+.row {margin-right: -15px;margin-left: -15px;}
+
+.ibox {clear: both;margin-bottom: 25px;margin-top: 0;padding: 0;background-color: rgba(197, 208, 220, 0.15);}
+
+.ibox-title {-moz-border-bottom-colors: none;-moz-border-left-colors: none;-moz-border-right-colors: none;-moz-border-top-colors: none;border-color: #e7eaec;-webkit-border-image: none;-o-border-image: none;border-image: none;border-style: solid solid none;border-width: 4px 0 0;color: inherit;margin-bottom: 0;padding: 14px 15px 7px;min-height: 48px;}
+
+.ibox-title .span-1 {margin: -3px 0;font-size: 14px;font-weight: 600;text-align: center;font-style: inherit;float: left;}
+
+.ibox-title .span-2 {color: #fff;margin: -3px 0;float: right;background-color: #428bca;font-size: 10px;font-weight: 600;padding: 5px 9px;text-shadow: none;text-align: center;white-space: nowrap;vertical-align: baseline;border-radius: .25em;display: inline;line-height: 1;}
+
+.ibox-title div {float: right;margin: -2px 0;}
+
+.ibox-title div label > select {width: 100px;height: 23px;padding-top: 0;}
+input[type='radio'] {vertical-align: text-bottom;margin-bottom: 2px;*margin-bottom: -2px;}
+.ibox-title div label > input[type='text']{padding: 0;margin: 0;width: 100px;}
+
+.ibox-content {border-top: 1px solid #ededed;}
+
+.ibox-content {clear: both;}
+
+.ibox-content {color: inherit;padding: 15px 20px 20px;border-color: #e7eaec;-webkit-border-image: none;-o-border-image: none;border-image: none;border-style: solid solid none;border-width: 1px 0;}
+
+.ibox-content .icon-up {color: #1ab394;}
+.ibox-content .icon-down{color: #ed5565;}
+.ibox-content .icon-normal{color: #38bbff;}
+
+.ibox-content small {
+
 }
+
+.ibox-content h1 {font-weight: 100;line-height: 1.1;display: block;-webkit-margin-before: 0.67em;-webkit-margin-after: 0.67em;-webkit-margin-start: 0;-webkit-margin-end: 0;color: rgba(147, 147, 147, 0.85);font-size: 30px;margin: 15px 0;}
+
+.stat-list li:first-child {margin-top: 0;}
+
+.stat-list li {margin-top: 15px;position: relative;text-align: -webkit-match-parent;height: 33%;}
+h2 {font-size: 30px;font-weight: 120;line-height: 1.1;display: block;-webkit-margin-before: 0.83em;-webkit-margin-after: 0.83em;-webkit-margin-start: 0;-webkit-margin-end: 0;color: rgba(49, 186, 223, 0.74);;}
+
+.table {width: 100%;max-width: 100%;margin-bottom: 20px;}
+
+table {background-color: transparent;}
+
+table {border-spacing: 0;border-collapse: collapse;}
+
+.table > tbody > tr > th {border-top: none;}
+
+h5 {display: block;font-size: 0.83em;-webkit-margin-before: 1.67em;-webkit-margin-after: 1.67em;-webkit-margin-start: 0;-webkit-margin-end: 0;font-weight: bold;}
+
+.search-btn{background-color: #fff;margin: 0;padding: 0;border: 1px solid #ddd;border-radius: 5px;width: 40px;}
+.search-btn:hover{border: 1px solid rgba(147, 147, 147, 0.85);}

@@ -4,19 +4,21 @@
         visibility: hidden;
     }
 
-
 </style>
 
 <!--标签区-->
-<div id="listUser" ms-important="listUser" class="page-content">
+<div id="listOperation" ms-important="listOperation" class="page-content">
     <div class="row">
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <span class="span-1"><b><i class="fa fa-users"></i></b></span>
                     <div>
-                        <label>用户名：<input ms-duplex-string="username" type="text" ></label>&nbsp;
-                        <label>工号：<input ms-duplex-string="work" type="text">  </label>
+                        <label>所属模块：<select name="moduleCode" ms-duplex="moduleCode">
+                            <option value="0">请选择</option>
+                            <option ms-repeat="modules" ms-attr-value="el.code">{{el.name}}</option>
+                        </select></label>
+                        <label>操作名称：<input  name="name" ms-duplex-string="name" type="text" ></label>&nbsp;
                         <button class="search-btn" ms-click="queryUserMap">确定</button>
                         <button class="search-btn" ms-click="clear">重置</button>
                     </div>
@@ -35,32 +37,29 @@
                                 <tr>
                                     <th width="5%"><input type="checkbox" ms-duplex-checked="allChecked"
                                                           data-duplex-changed="checkAll"/></th>
-                                    <th width="15%">用户名</th>
-                                    <th width="15%">职位</th>
-                                    <th width="15%">工号</th>
-                                    <!--<th width="20%">地址</th>-->
-                                    <th width="10%">创建时间</th>
+                                    <th width="20%">操作名称</th>
+                                    <th width="20%">权限代码</th>
+                                    <th width="18">所属模块</th>
+                                    <th width="12%">创建时间</th>
                                     <th width="5%">状态</th>
-                                    <th width="35%">操作</th>
+                                    <th width="20%">操作</th>
                                 </tr>
                                 <tr ms-repeat="data">
                                     <td width="5%"><input type="checkbox" ms-duplex-checked="el.checked" data-duplex-changed="checkOne"
                                                           ms-attr-disabled="el.status===0"/></td>
-                                    <td>{{el.username}}</td>
-                                    <td>{{el.position}}</td>
-                                    <td>{{el.workNum}}</td>
-                                    <td>{{el.createDate|date("yyyy-MM-dd")}}</td>
-                                    <td ms-if="el.status == 0"><span ms-class="enabled_text:el.status==0">启用</span></td>
-                                    <td ms-if="el.status == 1"><span ms-class="disabled_text:el.status==1">停用</span></td>
+                                    <td>{{el.name}}</td>
+                                    <td>{{el.authCode}}</td>
+                                    <td>{{el.moduleName}}</td>
+                                    <td>{{el.createDate|date('yyyy-MM-dd'}}</td>
+                                    <td>{{el.status|statusFilter|html}}</td>
                                     <td>
                                         <input name="" type="button" ms-click="edit(el.id)" value="修改"/>
                                         <input name="" type="button" value="启用" ms-if="el.status == 1" ms-click="disableOrEnable(0,el.id,0)"/>
                                         <input name="" type="button" value="停用" ms-if="el.status == 0" ms-click="disableOrEnable(1,el.id,1)"/>
                                         <input name="" type="button" value="删除" ms-if="el.status == 1" ms-click="deleteOne(el.id)"/>
-                                        <!-- todo 用户权限缓存-->
-                                        <input name="" type="button" value="刷新权限缓存" ms-if="el.status == 1" ms-click="deleteOne(el.id)"/>
                                     </td>
                                 </tr>
+
                             </table>
 
                             <div class="page_num">
@@ -88,4 +87,4 @@
 
 </div>
 
-<script src="../../../js/sys/user/list.js"></script>
+<script src="../../../js/auth/operation/list.js"></script>
