@@ -185,6 +185,14 @@ ace.load_ajax_scripts(scripts, function () {
                     });
                 });
             },
+            //授权
+            auth: function (pageNum, roleCode, name) {
+                ROOT.openDialog("/auth/role/auth.html", {roleCode: roleCode}, "【" + name + "】角色授权", "400px", "500px", function () {
+                    //清理权限缓存
+                    // jQuery.fn.authController('clearPermissions');
+                    vm.query(pageNum);    //查询
+                });
+            },
 
             //首页，上下页，尾页
             selectPage: function (value) {

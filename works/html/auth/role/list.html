@@ -56,7 +56,7 @@
                                         <input name="" type="button" value="停用" ms-if="el.status == 0" ms-click="disableOrEnable(1,el.id,1)"/>
                                         <input name="" type="button" value="删除" ms-if="el.status == 1" ms-click="deleteOne(el.id)"/>
                                         <!-- todo 角色授权-->
-                                        <input name="" type="button" value="授权" ms-if="el.status == 1" ms-click="deleteOne(el.id)"/>
+                                        <input name="" type="button" value="授权" ms-if="el.status == 1" ms-click="auth(1,el.code, el.name)"/>
                                     </td>
                                 </tr>
                             </table>
