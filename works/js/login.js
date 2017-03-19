@@ -76,7 +76,7 @@ avalon.ready(function () {
                                     },
                                     shadeClose: false,
                                     content: html ,
-                                    area: [650,400],
+                                    area: [650,200],
                                     anim:2,
                                     fixed:true
                                 });
