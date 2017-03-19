@@ -4,6 +4,7 @@
 avalon.ready(function () {
     var vm = avalon.define({
         $id: "chooseUser",
+        role:[],
         queryRoles:function () {
             $.ajax({
                 // todo 获取当前用户的所有角色

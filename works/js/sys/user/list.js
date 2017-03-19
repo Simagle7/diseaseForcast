@@ -104,6 +104,13 @@ ace.load_ajax_scripts(scripts, function () {
                 });
             },
 
+            //设置角色
+            setRole: function (id) {
+                ROOT.openDialog("/sys/user/setRole.html", {}, "查看用户", "650", "350", function () {
+                    vm.clear();    //重置
+                });
+            },
+
             //批量删除
             deleteBatch: function () {
                 layer.confirm('确定要删除所选用户？', {icon: 2},function (index) {

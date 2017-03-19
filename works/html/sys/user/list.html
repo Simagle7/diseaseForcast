@@ -58,7 +58,8 @@
                                         <input name="" type="button" value="停用" ms-if="el.status == 0" ms-click="disableOrEnable(1,el.id,1)"/>
                                         <input name="" type="button" value="删除" ms-if="el.status == 1" ms-click="deleteOne(el.id)"/>
                                         <!-- todo 用户权限缓存-->
-                                        <input name="" type="button" value="刷新权限缓存" ms-if="el.status == 1" ms-click="deleteOne(el.id)"/>
+                                        <input name="" type="button" value="设置角色" ms-if="el.status == 0" ms-click="setRole()"/>
+                                        <input name="" type="button" value="刷新权限缓存" ms-if="el.status == 0" ms-click="deleteOne(el.id)"/>
                                     </td>
                                 </tr>
                             </table>
