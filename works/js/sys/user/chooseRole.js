@@ -4,6 +4,7 @@
 avalon.ready(function () {
     var vm = avalon.define({
         $id: "chooseUser",
+        uid: JSON.parse($("#param").val()).uid,
         role:[],
         queryRoles:function () {
             $.ajax({
@@ -11,6 +12,7 @@ avalon.ready(function () {
                 url: "/cn/df/authRole/queryRoles4User",
                 type:"GET",
                 dataType:'json',
+                data:{userCode: vm.uid},
                 beforeSend: function () {
                     layer.load(2);
                 },
@@ -51,8 +53,12 @@ avalon.ready(function () {
                     }
                 }
             })
+        },
+        init:function () {
+            vm.queryRoles();
         }
     });
     avalon.scan($("#chooseUser")[0], vm);
+    vm.init();
 });
 

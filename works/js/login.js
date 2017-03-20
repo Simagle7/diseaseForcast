@@ -58,6 +58,8 @@ avalon.ready(function () {
                             }
                             // todo 登录成功之后，弹窗进入角色选择窗口
                             $.get("/html/sys/user/chooseRole.html",{}, function (html) {
+                                var str = JSON.stringify({uid: result.bizData});
+                                var hidden = "<input id='param' type='hidden' value='" + str + "' />";
                                 layer.open({
                                     type: 1,
                                     title: "登录成功，请选择角色",
@@ -75,7 +77,7 @@ avalon.ready(function () {
                                         //为了保存后刷新
                                     },
                                     shadeClose: false,
-                                    content: html ,
+                                    content: html + hidden,
                                     area: [650,200],
                                     anim:2,
                                     fixed:true
