@@ -17,7 +17,7 @@
     .slideBox .hd ul li.on{ background:#f00; color:#fff; }
     .slideBox .bd{ position:relative; height:100%; z-index:0;   }
     .slideBox .bd li{ zoom:1; vertical-align:middle; }
-    .slideBox .bd img{ width:450px; height:230px; display:block;  }
+    /*.slideBox .bd img{ width:450px; height:230px; display:block;  }*/
 
     /* 下面是前/后按钮代码，如果不需要删除即可 */
     .slideBox .prev,
@@ -27,6 +27,11 @@
     .slideBox .next:hover{ filter:alpha(opacity=100);opacity:1;  }
     .slideBox .prevStop{ display:none;  }
     .slideBox .nextStop{ display:none;  }
+    .role-content{width: 450px;background-color: #8183f1;height: 200px;padding-top: 30px;}
+    .role-content img{
+        width: 150px;background-color: white;height: 150px;border-radius: 150px; margin: 0 auto
+    }
+    .role-name{color: #fff;vertical-align: bottom;margin: 20px auto 0;font-size: 20px;}
 </style>
 
 <!--标签区-->
@@ -36,21 +41,41 @@
 
         <div class="bd">
             <ul>
-                <li ms-click="selectRoles('650f07d30e5d4822b8bc18917edd46d0',1)">
-                    <div style="width: 450px;background-color: rgb(51, 192, 110);height: 200px;padding-top: 30px;">
-                        <div style="width: 150px;background-color: white;height: 150px;border-radius: 150px; margin: 0 auto">
-
+                <li>
+                    <div class="role-content">
+                        <div>
+                            <img src="/images/role/role.png"  alt="管理员" ms-click="selectRoles(uid,'d92c6f975c354d0ca59be7f43d6de480')">
                         </div>
-                        <div style="    color: #fff;vertical-align: bottom;margin: 20px auto 0;font-size: 20px;">
+                        <div class="role-name">
                             <span>管理员</span>
                         </div>
                     </div>
-                    <div>
-
+                </li>
+                <li ms-click="selectRoles(uid,'d92c6f975c354d0ca59be7f43d6de480')">
+                    <div class="role-content" style="background-color: #4caeef">
+                        <div>
+                            <img src="/images/role/role2.jpg"  alt="普通用户" ms-click="selectRoles(uid,'d92c6f975c354d0ca59be7f43d6de480')">
+                        </div>
+                        <div class="role-name">
+                            <span>普通用户</span>
+                        </div>
                     </div>
                 </li>
-                <li ms-click="selectRoles('650f07d30e5d4822b8bc18917edd46d0',1)"><a><img src="../../../images/pic2.jpg" /></a></li>
-                <li ms-click="selectRoles('650f07d30e5d4822b8bc18917edd46d0',1)"><a><img src="../../../images/pic2.jpg" /></a></li>
+                <!--<li  ms-repeat="role" ms-click="selectRoles('650f07d30e5d4822b8bc18917edd46d0',1)">-->
+                    <!--<div class="role-content" ms-css-background="el.color">-->
+                        <!--<div>-->
+                            <!--<img ms-src-alt="el.img"  alt="el.name">-->
+                        <!--</div>-->
+                        <!--<div class="role-name">-->
+                            <!--<span>{{el.name}}</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div>-->
+
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li ms-click="selectRoles('650f07d30e5d4822b8bc18917edd46d0',1)"><a><img src="../../../images/pic2.jpg" /></a></li>-->
+                <!--<li ms-click="selectRoles('650f07d30e5d4822b8bc18917edd46d0',1)"><a><img src="../../../images/pic2.jpg" /></a></li>-->
             </ul>
         </div>
 

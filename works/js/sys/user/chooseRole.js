@@ -6,6 +6,11 @@ avalon.ready(function () {
         $id: "chooseUser",
         uid: JSON.parse($("#param").val()).uid,
         role:[],
+        colorImg:[{color:"#33c06e", img: '/images/role/role.png'},
+            {color:"#8183f1", img: '/images/role/role0.jpg'},
+            {color:"#ffb810", img: '/images/role/role1.jpg'},
+            {color:"#4caeef", img: '/images/role/role2.jpg'},
+            {color:"#fb592d", img: '/images/role/role3.jpg'}],
         queryRoles:function () {
             $.ajax({
                 // todo 获取当前用户的所有角色
@@ -21,9 +26,13 @@ avalon.ready(function () {
                 },
                 success: function (result) {
                     if(isSuccess(result)){
-
-                    }else {
-
+                        result.bizData.forEach(function (el) {
+                            var index = Math.floor(Math.random()*5);
+                            el.color = vm.colorImg[index].color;
+                            el.img = vm.colorImg[index].img;
+                        });
+                        console.log(result.bizData);
+                        vm.role = result.bizData;
                     }
                 }
             })
