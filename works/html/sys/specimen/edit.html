@@ -1,0 +1,61 @@
+<!--样式区-->
+<style>
+    .ms-controller, .ms-important, [ms-controller], [ms-important] {
+        visibility: hidden;
+    }
+</style>
+
+<!--标签区-->
+<div id="editPatient" ms-important="editPatient">
+
+    <div class="form">
+        <form id="updateForm">
+            <input type="text" name="id" hidden ms-duplex-number="data.id">
+            <div class=" user-edit">
+                <div class="remark"> 注：带 * 号为必填项</div>
+                <table class="table_1" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th width="20%"><span>*</span>账号：</th>
+                        <td width="30"><input type="text" ms-duplex-string="data.username" readonly></td>
+                        <th width="20%"><span>*</span>创建时间：</th>
+                        <td width="30%">{{data.createDate|date("yyyy-mm-dd")}}</td>
+                    </tr>
+
+                    <tr>
+                        <th width="20%"><span>*</span>密码：</th>
+                        <td width="30%">
+                            <input type="text" value="********" readonly ms-if="data.password == null">
+                            <input type="text" ms-duplex-string="data.password" readonly ms-if="data.password != null">
+                            <i class="fa fa-refresh" style="font-size: 17px; margin-left: 5px;color: #428bca;" ms-click="resetPasswd"></i>
+                        </td>
+                        <th width="20%">工号：</th>
+                        <td width="30%"><input type="text" name="workNum" ms-duplex-string="data.workNum"></td>
+                    </tr>
+                    <tr>
+                        <th width="20%">年龄：</th>
+                        <td width="30%"><input type="text" name="age" ms-duplex-number="data.age"></td>
+                        <th width="20%"><span>*</span>性别：</th>
+                        <td width="30">
+                            <input type="radio" name="sex" value="0" ms-duplex-number="data.sex">&nbsp;男&nbsp;&nbsp;
+                            <input type="radio" name="sex" value="1" ms-duplex-number="data.sex">&nbsp;女
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="20%"><span>*</span>职位</th>
+                        <td colspan="3">
+                            <input type="text" name="position" ms-duplex-string="data.position">
+                        </td>
+                    </tr>
+                </table>
+                <div class="user-btn">
+                    <input type="button" value="保存" class="oper" ms-click="save"/>
+                    <input type="button" value="返回" class="oper" ms-click="back"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!--脚本区-->
+<script type="text/javascript" src="../../../js/sys/specimen/edit.js"></script>
