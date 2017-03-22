@@ -27,7 +27,7 @@
                         <div class="col-sm-12">
                             <!-- 顶部操作-->
                             <div class="top_bt">
-                                <a href="javascript:void(0);" ms-click="add"><i class="iconfont icon-zengjia"></i>&nbsp;添 加</a>
+                                <a href="javascript:void(0);" ms-click="add" ac-authCode="user:add"><i class="iconfont icon-zengjia"></i>&nbsp;添 加</a>
                                 <a href="javascript:void(0);" ms-click="deleteBatch"><i class="iconfont icon-shanchu"></i>&nbsp;删 除</a>
                             </div>
 
@@ -59,7 +59,7 @@
                                         <input name="" type="button" value="删除" ms-if="el.status == 1" ms-click="deleteOne(el.id)"/>
                                         <!-- todo 用户权限缓存-->
                                         <input name="" type="button" value="设置角色" ms-if="el.status == 0" ms-click="setRole()"/>
-                                        <input name="" type="button" value="刷新权限缓存" ms-if="el.status == 0" ms-click="deleteOne(el.id)"/>
+                                        <input name="" type="button" value="刷新权限缓存" ms-if="el.status == 0" ms-click="refreashPermission"/>
                                     </td>
                                 </tr>
                             </table>

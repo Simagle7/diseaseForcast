@@ -188,7 +188,7 @@ var ROOT = avalon.define({
     logout: function () {
         layer.confirm("您确定要登出？",{icon: 5, title: "注销"}, function (index) {
             $.ajax({
-                url: "/cm/admin/user/logout",
+                url: "/df/admin/user/logout",
                 dataType: 'json',
                 type: 'get',
                 success: function (result) {

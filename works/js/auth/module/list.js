@@ -7,6 +7,7 @@ var scripts = [null];
 //加载完通用脚本后执行
 
 ace.load_ajax_scripts(scripts, function () {
+    $('a[ac-authCode],input[ac-authCode]').authController({moduleUrl:'/df/admin/auth/module'});
     avalon.ready(function () {
         var vm = avalon.define({
             $id: "listModule",

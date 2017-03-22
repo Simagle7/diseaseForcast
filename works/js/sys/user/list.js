@@ -6,6 +6,8 @@ var scripts = [null];
 //加载完通用脚本后执行
 
 ace.load_ajax_scripts(scripts, function () {
+    //对需要权限控制的元素进行渲染控制
+    $('a[ac-authCode],input[ac-authCode]').authController({moduleUrl:'/df/admin/sys/user'});
     avalon.ready(function () {
         var vm = avalon.define({
             $id: "listUser",
@@ -109,6 +111,26 @@ ace.load_ajax_scripts(scripts, function () {
                 ROOT.openDialog("/sys/user/setRole.html", {}, "查看用户", "650", "350", function () {
                     vm.clear();    //重置
                 });
+            },
+            refreashPermission: function(){
+                $.ajax({
+                    url:"/cn/df/authAcl/refreshCache",
+                    dataType:"JSON",
+                    type:"GET",
+                    beforeSend: function () {
+                        ROOT.openLoading();
+                    },
+                    complete: function () {
+                        ROOT.closeLoading();
+                    },
+                    success: function (result) {
+                        if(isSuccess(result)){
+                            layer.alert(result.bizData, {icon:1});
+                        }else{
+                            layer.alert(result.msg,{icon:2});
+                        }
+                    }
+                })
             },
 
             //批量删除
