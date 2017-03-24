@@ -6,27 +6,24 @@ $(function() {
     //表单校验
     var validator = $("#addForm").validate({
         rules: {
-            age: {required: true, min: 0,digits:true}
+            type: {required: true, min: 0}
 
         },
         messages: {
-            username: {required: "必填", maxlength: "年龄不能为负数",digits:"年龄必须为整数"}
+            username: {required: "必填", maxlength: "请选择一项模板"}
         },
         errorPlacement: errorPlacement,
         success: "valid"
     });
 
     var vm = avalon.define({
-        $id: "addPatient",
-        currentDate: new Date(),
+        $id: "selectModel",
+        type:0,
         save: function () {
             if (validator.form()) {
-                var data = $("#addForm").serialize();
                 $.ajax({
-                    url: "/cn/df/patient/add",
-                    type: "POST",
-                    dataType: 'JSON',
-                    data: data,
+                    url: "/doc/excel/"+type+".xlxs",
+                    type: "GET",
                     beforeSend: function () {
                         ROOT.openLoading();
                     },
@@ -34,12 +31,6 @@ $(function() {
                         ROOT.closeLoading();
                     },
                     success: function (result) {
-                        if (isSuccess(result)) {
-                            layer.alert(result.bizData, {icon: 1});
-                            ROOT.closeDialog();
-                        } else {
-                            layer.alert(result.msg, {icon: 2});
-                        }
                     }
                 });
             }
@@ -48,6 +39,6 @@ $(function() {
             ROOT.cancelDialog();
         }
     });
-    avalon.scan($("#addPatient")[0], vm);
+    avalon.scan($("#selectModel")[0], vm);
 });
 

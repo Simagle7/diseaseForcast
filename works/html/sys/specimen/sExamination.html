@@ -1,0 +1,126 @@
+<!--样式区-->
+<style>
+    .ms-controller, .ms-important, [ms-controller], [ms-important] {
+        visibility: hidden;
+    }
+    label:first-child{
+        margin-right: 5px;
+    }
+</style>
+
+<!--标签区-->
+<div id="editSExamination" ms-important="editSExamination">
+
+    <div class="form">
+        <form id="updateForm">
+            <input type="text" name="id" hidden ms-duplex-number="data.id">
+            <div class=" user-edit">
+                <div class="remark"> 注：带 * 号为必填项</div>
+                <table class="table_1" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th width="10%">舌淡白：</th>
+                        <td width="15%"><label><input type="radio" name="SDB">是</label><label><input type="radio" name="SDB">否</label></td>
+                        <th width="10%">舌红：</th>
+                        <td width="15%"><label><input type="radio" name="SH">是</label><label><input type="radio" name="SH">否</label></td>
+                        <th width="10%">舌锋红：</th>
+                        <td width="15%"><label><input type="radio" name="SFH">是</label><label><input type="radio" name="SFH">否</label></td>
+                        <th width="10%">舌暗红：</th>
+                        <td width="15%"><label><input type="radio" name="SAH">是</label><label><input type="radio" name="SAH">否</label></td>
+                    </tr>
+                    <tr>
+                        <th width="10%">舌暗紫：</th>
+                        <td width="15%"><label><input type="radio" name="SAZ">是</label><label><input type="radio" name="SAZ">否</label></td>
+                        <th width="10%">舌体肥大：</th>
+                        <td width="15%"><label><input type="radio" name="STFD">是</label><label><input type="radio" name="STFD">否</label></td>
+                        <th width="10%">舌体瘦小：</th>
+                        <td width="15%"><label><input type="radio" name="STSX">是</label><label><input type="radio" name="STSX">否</label></td>
+                        <th width="10%">齿痕舌：</th>
+                        <td width="15%"><label><input type="radio" name="CHS">是</label><label><input type="radio" name="CHS">否</label></td>
+                    </tr>
+                    <tr>
+                        <th width="10%">厚苔：</th>
+                        <td width="15%"><label><input type="radio" name="HT">是</label><label><input type="radio" name="HT">否</label></td>
+                        <th width="10%">腻苔：</th>
+                        <td width="15%"><label><input type="radio" name="NT">是</label><label><input type="radio" name="NT">否</label></td>
+                        <th width="10%">腐苔：</th>
+                        <td width="15%"><label><input type="radio" name="FT">是</label><label><input type="radio" name="FT">否</label></td>
+                        <th width="10%">少苔：</th>
+                        <td width="15%"><label><input type="radio" name="ST">是</label><label><input type="radio" name="ST">否</label></td>
+                    </tr>
+                    <tr>
+                        <th width="10%">沉脉：</th>
+                        <td width="15%"><label><input type="radio" name="CM">是</label><label><input type="radio" name="CM">否</label></td>
+                        <th width="10%">数脉：</th>
+                        <td width="15%"><label><input type="radio" name="SM">是</label><label><input type="radio" name="SM">否</label></td>
+                        <th width="10%">缓脉：</th>
+                        <td width="15%"><label><input type="radio" name="HM">是</label><label><input type="radio" name="HM">否</label></td>
+                        <th width="10%">结代脉：</th>
+                        <td width="15%"><label><input type="radio" name="JDM">是</label><label><input type="radio" name="JDM">否</label></td>
+                    </tr>
+                    <tr>
+                        <th width="10%">迟脉：</th>
+                        <td width="15%"><label><input type="radio" name="CHIM">是</label><label><input type="radio" name="CHIM">否</label></td>
+                        <th width="10%">细脉：</th>
+                        <td width="15%"><label><input type="radio" name="XIM">是</label><label><input type="radio" name="XIM">否</label></td>
+                        <th width="10%">弦脉：</th>
+                        <td width="15%"><label><input type="radio" name="XM">是</label><label><input type="radio" name="XM">否</label></td>
+                        <th width="10%">紧脉：</th>
+                        <td width="15%"><label><input type="radio" name="JM">是</label><label><input type="radio" name="JM">否</label></td>
+                    </tr>
+                    <tr>
+                        <th width="10%">漓脉：</th>
+                        <td width="15%"><label><input type="radio" name="LM">是</label><label><input type="radio" name="LM">否</label></td>
+                        <th width="10%">滑脉：</th>
+                        <td width="15%"><label><input type="radio" name="HUAM">是</label><label><input type="radio" name="HUAM">否</label></td>
+                        <th width="10%">弱脉：</th>
+                        <td width="15%"><label><input type="radio" name="RM">是</label><label><input type="radio" name="RM">否</label></td>
+                        <th width="10%">花剥苔：</th>
+                        <td width="15%"><label><input type="radio" name="HBT">是</label><label><input type="radio" name="HBT">否</label></td>
+                    </tr>
+                    <tr>
+                        <th width="10%">无苔：</th>
+                        <td width="15%"><label><input type="radio" name="WT">是</label><label><input type="radio" name="WT">否</label></td>
+                        <th width="10%">厚腻苔：</th>
+                        <td width="15%"><label><input type="radio" name="HNT">是</label><label><input type="radio" name="HNT">否</label></td>
+                        <th width="10%">苔滑：</th>
+                        <td width="15%"><label><input type="radio" name="TH">是</label><label><input type="radio" name="TH">否</label></td>
+                        <th width="10%">苔色黄：</th>
+                        <td width="15%"><label><input type="radio" name="TSH">是</label><label><input type="radio" name="TSH">否</label></td>
+                    </tr>
+                    <tr>
+                        <th width="10%">苔色黑：</th>
+                        <td width="15%"><label><input type="radio" name="TSHE">是</label><label><input type="radio" name="TSHE">否</label></td>
+                        <th width="10%">舌瘀斑瘀点：</th>
+                        <td width="15%"><label><input type="radio" name="SYBY">是</label><label><input type="radio" name="SYBY">否</label></td>
+                        <th width="10%">络脉淡紫：</th>
+                        <td width="15%"><label><input type="radio" name="LMDZ">是</label><label><input type="radio" name="LMDZ">否</label></td>
+                        <th width="10%">络脉青紫：</th>
+                        <td width="15%"><label><input type="radio" name="LMQZ">是</label><label><input type="radio" name="LMQZ">否</label></td>
+                    </tr>
+                    <tr>
+                        <th width="10%">络脉紫黑：</th>
+                        <td width="15%"><label><input type="radio" name="LMZH">是</label><label><input type="radio" name="LMZH">否</label></td>
+                        <th width="10%">络脉紫红：</th>
+                        <td width="15%"><label><input type="radio" name="LMZHO">是</label><label><input type="radio" name="LMZHO">否</label></td>
+                        <th width="10%">络脉淡红：</th>
+                        <td width="15%"><label><input type="radio" name="">是</label><label><input type="radio" name="LMDH">否</label></td>
+                        <th width="10%">络脉怒张：</th>
+                        <td width="15%"><label><input type="radio" name="LMNZ">是</label><label><input type="radio" name="LMNZ">否</label></td>
+                    </tr>
+                    <tr>
+                        <th width="10%">络脉细小：</th>
+                        <td width="15%"><label><input type="radio" name="">是</label><label><input type="radio" name="LMXX">否</label></td>
+                    </tr>
+                </table>
+                <div class="user-btn">
+                    <input type="button" value="保存" class="oper" ms-click="save"/>
+                    <input type="button" value="返回" class="oper" ms-click="back"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!--脚本区-->
+<script type="text/javascript" src="../../../js/sys/specimen/sExamination.js"></script>

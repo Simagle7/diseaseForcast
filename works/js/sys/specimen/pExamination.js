@@ -17,7 +17,7 @@ $(function() {
     });
 
     var vm = avalon.define({
-        $id: "addPatient",
+        $id: "editPExamination",
         currentDate: new Date(),
         save: function () {
             if (validator.form()) {
@@ -48,6 +48,6 @@ $(function() {
             ROOT.cancelDialog();
         }
     });
-    avalon.scan($("#addPatient")[0], vm);
+    avalon.scan($("#editPExamination")[0], vm);
 });
 

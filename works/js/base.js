@@ -139,10 +139,23 @@ function closeAllTip() {
  * @return {string}
  */
 avalon.filters.TORFFilter = function (value, args, args2) {
-    return value == true ? "<i class='fa fa-check' style='font-size:20px;color: #00B83F'></i>":"<i class='fa fa-times' style='font-size: 20px;color: #f12823'></i>";
+    return value == true ? "<i class='fa fa-check' style='font-size:20px;color: #2def79'></i>":"<i class='fa fa-times' style='font-size: 20px;color: #ff4b5a'></i>";
 };
 avalon.filters.statusFilter = function (value, args, args2) {
-    return value == 0 ? "<font style='color: #00B83F'>Enabled</font>" : "<font style='color: #f12823'>Disabled</font>";
+    return value == 0 ? "<font style='color: #2def79'>Enabled</font>" : "<font style='color: #ff4b5a'>Disabled</font>";
+};
+
+avalon.filters.genderFilter = function (value, args, args2) {
+    return value == 0 ? "<font style='color: #38bbff'><i style='font-size:15px;margin-right:3px;' class='fa fa-mars-stroke'></i>man</font>" : "<font style='color: #f185b7'><i style='font-size:15px;margin-right:3px;' class='fa fa-venus'></i>woman</font>";
+};
+avalon.filters.isSickenFilter = function (value, args, args2) {
+    if(value == 0){
+        return "<font style='color: #ff4b5a'><i style='font-size:15px;margin-right:3px;' class='fa fa-times'></i>否</font>";
+    } else if(value ==1){
+        return "<font style='color: #2def79'><i style='font-size:15px;margin-right:3px;' class='fa fa-check'></i>是</font>";
+    } else if(value == 2){
+        return "<font style='color: #ef973f'><i style='font-size:15px;margin-right:3px;' class='fa fa-exclamation-triangle'></i>不确定</font>";
+    }
 };
 avalon.filters.fullNameFilter = function (value, args, args2) {
     var moduleNames = value.split("|");

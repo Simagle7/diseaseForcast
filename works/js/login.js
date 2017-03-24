@@ -21,7 +21,7 @@ avalon.ready(function () {
     var vm = avalon.define({
         $id: 'login',
         username: "",
-        password: '',
+        password: "",
         rememberMe: false,
         //回车登录
         enter: function (event) {
@@ -33,6 +33,7 @@ avalon.ready(function () {
         //登录
         login: function () {
             // if (validator.form()) {
+            avalon.log(vm.username,vm.password);
                 $.ajax({
                     url: "/cn/df/user/login",
                     type: "POST",
@@ -43,7 +44,7 @@ avalon.ready(function () {
                     complete: function () {
                         layer.closeAll('loading');
                     },
-                    data: $("#loginForm").serialize(),
+                    data: {username:vm.username, password:vm.password},
                     success: function (result) {
                         if (isSuccess(result)) {
                             if (vm.rememberMe) {

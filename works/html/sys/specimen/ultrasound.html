@@ -1,0 +1,58 @@
+<!--样式区-->
+<style>
+    .ms-controller, .ms-important, [ms-controller], [ms-important] {
+        visibility: hidden;
+    }
+    label:first-child{
+        margin-right: 5px;
+    }
+</style>
+
+<!--标签区-->
+<div id="editUltrasound" ms-important="editUltrasound">
+
+    <div class="form">
+        <form id="updateForm">
+            <input type="text" name="id" hidden ms-duplex-number="data.id">
+            <div class=" user-edit">
+                <div class="remark"> 注：带 * 号为必填项</div>
+                <table class="table_1" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th width="15%">主动脉根部：</th>
+                        <td width="10%"><label><input type="text" name="ZDMGB"></label></td>
+                        <th width="15%">左心房：</th>
+                        <td width="10%"><label><input type="text" name="ZXF"></label></td>
+                        <th width="15%">右心室：</th>
+                        <td width="10%"><label><input type="text" name="YXF"></label></td>
+                        <th width="15%">室间隔：</th>
+                        <td width="10%"><label><input type="text" name="SJG"></label></td>
+                    </tr>
+                    <tr>
+                        <th width="15%">左心室（舒张末）：</th>
+                        <td width="10%"><label><input type="text" name="ZXS"></label></td>
+                        <th width="15%">左心室（收缩末）：</th>
+                        <td width="10%"><label><input type="text" name="YXS"></label></td>
+                        <th width="15%">左心室后壁：</th>
+                        <td width="10%"><label><input type="text" name="ZXSHB"></label></td>
+                        <th width="15%">肺动脉：</th>
+                        <td width="10%"><label><input type="text" name="FDM"></label></td>
+                    </tr>
+                    <tr>
+                        <th width="15%">EF：</th>
+                        <td width="10%"><label><input type="text" name="EF"></label></td>
+                        <th width="15%">FS：</th>
+                        <td width="10%"><label><input type="text" name="FS"></label></td>
+                    </tr>
+                </table>
+                <div class="user-btn">
+                    <input type="button" value="保存" class="oper" ms-click="save"/>
+                    <input type="button" value="返回" class="oper" ms-click="back"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!--脚本区-->
+<script type="text/javascript" src="../../../js/sys/specimen/ultrasound.js"></script>

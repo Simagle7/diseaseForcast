@@ -14,33 +14,22 @@
                 <div class="remark"> 注：带 * 号为必填项</div>
                 <table class="table_1" cellpadding="0" cellspacing="0">
                     <tr>
-                        <th width="20%"><span>*</span>账号：</th>
-                        <td width="30"><input type="text" name="username"></td>
-                        <th width="20%"><span>*</span>创建时间：</th>
-                        <td width="30%">{{currentDate|date("yyyy-MM-dd")}}</td>
-                    </tr>
-
-                    <tr>
-                        <th width="20%"><span>*</span>密码：</th>
+                        <th width="20%"><span>*</span>年龄：</th>
                         <td width="30%">
-                            <input type="text" name="password">
+                            <label><input type="text" name="age"></label>
                         </td>
-                        <th width="20%">工号：</th>
-                        <td width="30%"><input type="text" name="workNum"></td>
-                    </tr>
-                    <tr>
-                        <th width="20%">年龄：</th>
-                        <td width="30%"><input type="text" name="age"></td>
                         <th width="20%"><span>*</span>性别：</th>
-                        <td width="30">
-                            <input type="radio" name="sex" value="0" checked>&nbsp;男&nbsp;&nbsp;
-                            <input type="radio" name="sex" value="1">&nbsp;女
-                        </td>
+                        <td width="30"><label>
+                            <label><input type="radio" name="gender" value="0" checked>&nbsp;男&nbsp;&nbsp;</label>
+                            <label><input type="radio" name="gender" value="1" >&nbsp;女&nbsp;&nbsp;</label>
+                        </label></td>
                     </tr>
                     <tr>
-                        <th width="20%"><span>*</span>职位</th>
-                        <td colspan="3">
-                            <input type="text" name="position">
+                        <th width="20%"><span>*</span>是否患病：</th>
+                        <td width="30%" colspan="3">
+                            <label><input type="radio" name="isSicken" value="0" >&nbsp;否&nbsp;&nbsp;</label>
+                            <label><input type="radio" name="isSicken" value="1" >&nbsp;是&nbsp;&nbsp;</label>
+                            <label><input type="radio" name="isSicken" value="2" checked>&nbsp;不确定</label>
                         </td>
                     </tr>
                 </table>

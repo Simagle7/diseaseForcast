@@ -1,0 +1,43 @@
+<!--样式区-->
+<style>
+    .ms-controller, .ms-important, [ms-controller], [ms-important] {
+        visibility: hidden;
+    }
+</style>
+
+<!--标签区-->
+<div id="selectModel" ms-important="selectModel">
+
+    <div class="form">
+        <form id="addForm">
+            <div class=" user-edit">
+                <div class="remark"> 注：带 * 号为必填项</div>
+                <table class="table_1" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th width="20%"><span>*</span>请选择模板：</th>
+                        <td width="30%">
+                            <label>
+                                <select name="type" ms-duplex-number="type">
+                                    <option value="0">请选择</option>
+                                    <option value="入院症见">入院症见</option>
+                                    <option value="体格检查">体格检查</option>
+                                    <option value="专科检查">专科检查</option>
+                                    <option value="检查分析">检查分析</option>
+                                    <option value="彩超">彩超</option>
+                                </select>
+                            </label>
+                        </td>
+                    </tr>
+                </table>
+                <div class="user-btn">
+                    <input type="button" value="保存" class="oper" ms-click="save"/>
+                    <input type="button" value="返回" class="oper" ms-click="back"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!--脚本区-->
+<script type="text/javascript" src="../../../js/sys/specimen/selectModel.js" ></script>

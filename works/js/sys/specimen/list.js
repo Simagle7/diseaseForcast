@@ -1,5 +1,5 @@
 /**
- * Created by simagle on 2016/4/13.
+ * Created by katybaby on 2016/4/13.
  */
 //本页面脚本列表
 var scripts = [null];
@@ -7,7 +7,7 @@ var scripts = [null];
 
 ace.load_ajax_scripts(scripts, function () {
     //对需要权限控制的元素进行渲染控制
-    $('a[ac-authCode],input[ac-authCode]').authController({moduleUrl:'/df/admin/sys/user'});
+    // $('a[ac-authCode],input[ac-authCode]').authController({moduleUrl:'/df/admin/sys/specimen'});
     avalon.ready(function () {
         var vm = avalon.define({
             $id: "listPatient",
@@ -46,10 +46,12 @@ ace.load_ajax_scripts(scripts, function () {
                 var data = $("#searchCondition").serialize();
                 data += "&pageNo=" + vm.pageNo;
                 data += "&pageSize=" + vm.pageSize;
+                avalon.log(data);
+
                 $.ajax({
-                    url: '/cn/df/user/queryPage',
-                    dataType: 'json',
-                    type: 'post',
+                    url: '/cn/df/patient/queryPage',
+                    type: 'POST',
+                    dataType: 'JSON',
                     data: data,
                     beforeSend: function () {
                         ROOT.openLoading();
@@ -94,44 +96,56 @@ ace.load_ajax_scripts(scripts, function () {
 
             //添加
             add: function () {
-                ROOT.openDialog("/sys/user/add.html", {}, "添加用户", "650", "350", function () {
+                ROOT.openDialog("/sys/specimen/add.html", {}, "添加用户", "650", "350", function () {
                     vm.clear();    //重置
                 });
             },
 
             //修改
             edit: function (id) {
-                ROOT.openDialog("/sys/user/edit.html", {id: id}, "查看用户", "650", "350", function () {
+                ROOT.openDialog("/sys/specimen/edit.html", {id: id}, "查看用户", "650", "350", function () {
                     vm.clear();    //重置
                 });
             },
 
-            //设置角色
-            setRole: function (id) {
-                ROOT.openDialog("/sys/user/setRole.html", {}, "查看用户", "650", "350", function () {
+            //编辑入院症见
+            editDiagnosis: function (code) {
+                ROOT.openDialog("/sys/specimen/diagnosis.html", {code: code}, "编辑入院症见", "650", "350", function () {
                     vm.clear();    //重置
                 });
             },
-            refreashPermission: function(){
-                $.ajax({
-                    url:"/cn/df/authAcl/refreshCache",
-                    dataType:"JSON",
-                    type:"GET",
-                    beforeSend: function () {
-                        ROOT.openLoading();
-                    },
-                    complete: function () {
-                        ROOT.closeLoading();
-                    },
-                    success: function (result) {
-                        if(isSuccess(result)){
-                            layer.alert(result.bizData, {icon:1});
-                        }else{
-                            layer.alert(result.msg,{icon:2});
-                        }
-                    }
-                })
+            //编辑体格检查
+            editPExamination: function (code) {
+                ROOT.openDialog("/sys/specimen/pExamination.html", {code: code}, "编辑体格检查", "650", "350", function () {
+                    vm.clear();    //重置
+                });
             },
+            //编辑专科检查
+            editSExamination: function (code) {
+                ROOT.openDialog("/sys/specimen/sExamination.html", {code: code}, "编辑专科检查", "650", "350", function () {
+                    vm.clear();    //重置
+                });
+            },
+            //编辑检查分析
+            editAnalysis: function (code) {
+                ROOT.openDialog("/sys/specimen/analysis.html", {code: code}, "编辑检查分析", "1200px", "550px", function () {
+                    vm.clear();    //重置
+                });
+            },
+            //编辑彩超
+            editUltrasound: function (code) {
+                ROOT.openDialog("/sys/specimen/ultrasound.html", {code: code}, "编辑彩超", "1200px", "270px", function () {
+                    vm.clear();    //重置
+                });
+            },
+
+            //下载模板
+            selectModel: function (code) {
+                ROOT.openDialog("/sys/specimen/selectModel.html", {code: code}, "下载模板", "", "", function () {
+                    vm.clear();    //重置
+                });
+            },
+
 
             //批量删除
             deleteBatch: function () {
@@ -186,29 +200,6 @@ ace.load_ajax_scripts(scripts, function () {
                                 layer.alert(result.bizData, {icon: 1});
                             } else {
                                 layer.alert(result.msg , {icon: 2});
-                            }
-                        }
-                    });
-                });
-            },
-
-            //启用/停用
-            disableOrEnable: function (status, id, flag) {
-                var action = flag === 1 ? "停用" : "启用";
-                var icon = flag === 1 ? 5 : 6;
-                layer.confirm('确定要' + action + '该用户！', {icon: icon}, function (index) {
-                    $.ajax({
-                        url: "/cn/df/user/disabledOrEnabled",
-                        type: "POST",
-                        dataType: "JSON",
-                        data:{id: id, status:status},
-                        complete: function () {
-                            layer.close(index);
-                            vm.query(vm.pageNo);
-                        },
-                        success: function (result) {
-                            if (isSuccess(result)) {
-                                layer.alert(action + "成功！", {icon: 1});
                             }
                         }
                     });
