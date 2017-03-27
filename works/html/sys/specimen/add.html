@@ -14,22 +14,36 @@
                 <div class="remark"> 注：带 * 号为必填项</div>
                 <table class="table_1" cellpadding="0" cellspacing="0">
                     <tr>
+                        <th width="20%">姓名</th>
+                        <td width="30%"><label><input type="text" name="name"></label></td>
                         <th width="20%"><span>*</span>年龄：</th>
                         <td width="30%">
                             <label><input type="text" name="age"></label>
                         </td>
+                    </tr>
+                    <tr>
                         <th width="20%"><span>*</span>性别：</th>
                         <td width="30"><label>
                             <label><input type="radio" name="gender" value="0" checked>&nbsp;男&nbsp;&nbsp;</label>
                             <label><input type="radio" name="gender" value="1" >&nbsp;女&nbsp;&nbsp;</label>
                         </label></td>
-                    </tr>
-                    <tr>
                         <th width="20%"><span>*</span>是否患病：</th>
-                        <td width="30%" colspan="3">
+                        <td width="30%">
                             <label><input type="radio" name="isSicken" value="0" >&nbsp;否&nbsp;&nbsp;</label>
                             <label><input type="radio" name="isSicken" value="1" >&nbsp;是&nbsp;&nbsp;</label>
                             <label><input type="radio" name="isSicken" value="2" checked>&nbsp;不确定</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="20%">职业：</th>
+                        <td colspan="3">
+                            <label><input type="text"  name="career" value="0" style="width: 370px;"/></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="20%">地址：</th>
+                        <td colspan="3">
+                            <label><textarea style="height: 70px;width: 370px;"  name="address" value="0" ></textarea></label>
                         </td>
                     </tr>
                 </table>

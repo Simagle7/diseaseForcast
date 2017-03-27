@@ -18,7 +18,7 @@ $(function() {
     var vm = avalon.define({
         $id: "setRole",
         baseUserDto: null,
-        uid: JSON.parse(sessionStorage.getItem("CURRENTUSER")).uid,
+        uid: ROOT.getParam("uid"),
         allChecked: false,
         data:[],
         //初始化
@@ -73,7 +73,6 @@ $(function() {
         },
 
         save: function () {
-            //获取子应用
             var roleCodes = [];
             vm.data.forEach(function (el) {
                 if (el.checked) {

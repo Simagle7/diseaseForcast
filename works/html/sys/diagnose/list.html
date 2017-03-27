@@ -1,0 +1,150 @@
+<!--样式区-->
+<style>
+    .ms-controller, .ms-important {
+        visibility: hidden;
+    }
+
+
+</style>
+
+<!--标签区-->
+<div id="listDiagnose" ms-important="listDiagnose" class="page-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <span class="span-1"><b><i class="fa fa-bar-chart"></i></b> 冠心病诊断预测</span>
+                    <div>
+                        当前样本池数量：<span style="color:red">123</span>
+                    </div>
+                </div>
+                <div class="ibox-content" >
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <!-- 顶部操作-->
+                            <div class="top_bt">
+                                <label><b>病案号：</b><input style="height: 26px;" type="text" name="id" ms-duplex-number="id"></label>
+                                <a href="javascript:void(0);" ms-click="queryPatienById"><i class="fa fa-search"></i>&nbsp;查询</a>
+                                <span style="border-right: 1px solid #c3c3c3;" ms-if="data != null"></span>
+                                <a href="javascript:void(0);" ms-if="data != null" ms-click="diagnose(data.id)" style="margin-left: 5px;"><i
+                                        class="fa fa-calculator"></i>&nbsp;预 测</a>
+                            </div>
+
+                            <table class="table_1" ms-if="data != null">
+                                <tr>
+                                    <th width="7%">病案号</th>
+                                    <th width="10%">名称</th>
+                                    <th width="30%">职业</th>
+                                    <th width="5%">年龄</th>
+                                    <th width="8%">性别</th>
+                                    <th width="40%">相关病症信息</th>
+                                </tr>
+                                <tr>
+                                    <td>{{data.id}}</td>
+                                    <td>{{data.name}}</td>
+                                    <td>{{data.career}}</td>
+                                    <td>{{data.age}}</td>
+                                    <td>{{data.gender|genderFilter|html}}</td>
+                                    <td class="table_btn">
+                                        <a href="javascript:void(0);" ms-click="editDiagnosis(data.code)"><i
+                                                class="fa fa-pencil-square-o"></i>入院症见</a>
+                                        <a href="javascript:void(0);" ms-click="editPExamination(data.code)"><i
+                                                class="fa fa-pencil-square-o"></i>体格检查</a>
+                                        <a href="javascript:void(0);" ms-click="editSExamination(data.code)"><i
+                                                class="fa fa-pencil-square-o"></i>专科检查</a>
+                                        <a href="javascript:void(0);" ms-click="editAnalysis(data.code)"><i
+                                                class="fa fa-pencil-square-o"></i>检查分析</a>
+                                        <a href="javascript:void(0);" ms-click="editUltrasound(data.code)"><i
+                                                class="fa fa-pencil-square-o"></i>彩 超</a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+                        <div ms-if="probability > 0 && probability <=20" class="col-sm-12" style=" margin-top: 15px;border-top: 1px solid #ddd;">
+                            <div class="col-sm-3" style="padding: 15px;margin-top: 5px;border-right: 1px solid #ccc;">
+                                    <div style="float: left">
+                                        患病概率：
+                                    </div>
+                                    <div class="progress" style="float: right;margin: 0; width: 190px;">
+                                        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+                                             style="min-width: 2em;" ms-css-width="rate">
+                                            {{probability|number(3)}}%
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <div class="col-sm-6" style="padding: 15px;margin-top: 5px;">
+                                <b><p>患病概率为：<span style="color: #5cb85c"> {{probability|number(3)}}%</span>，暂无患病风险，注意饮食、作息监控，身体就能一直棒棒哒！！！</p></b>
+                            </div>
+                            <div class="col-sm-3"></div>
+                        </div>
+
+                        <div ms-if="probability >20 && probability <= 40" class="col-sm-12" style=" margin-top: 15px;border-top: 1px solid #ddd;">
+                            <div class="col-sm-3" style="padding: 15px;margin-top: 5px;border-right: 1px solid #ccc;">
+                                <div style="float: left">
+                                    患病概率：
+                                </div>
+                                <div class="progress" style="float: right;margin: 0; width: 190px;">
+                                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
+                                         style="min-width: 2em;" ms-css-width="rate">
+                                        {{probability|number(3)}}%
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-6" style="padding: 15px;margin-top: 5px;">
+                                <b><p>患病概率为：<span style="color: #2a91d8"> {{probability|number(3)}}%</span>，较小可能性患病，请勿担心，建议咨询医生进行预防！！！</p></b>
+                            </div>
+                            <div class="col-sm-3"></div>
+                        </div>
+
+                        <div ms-if="probability > 40 && probability <= 60" class="col-sm-12" style="  margin-top: 15px;border-top: 1px solid #ddd;">
+                            <div class="col-sm-3" style="padding: 15px;margin-top: 5px;border-right: 1px solid #ccc;">
+                                <div style="float: left">
+                                    患病概率：
+                                </div>
+                                <div class="progress" style="float: right;margin: 0; width: 190px;">
+                                    <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar"
+                                         style="min-width: 2em; " ms-css-width="rate">
+                                        {{probability|number(3)}}%
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6" style="padding: 15px;margin-top: 5px;">
+                                <b><p>患病概率为：<span style="color: #f0ad4e"> {{probability|number(3)}}%</span>，有潜在患病风险，建议入院进行详细检查！！！</p></b>
+                            </div>
+                            <div class="col-sm-3"></div>
+                        </div>
+
+                        <div ms-if="probability > 60" class="col-sm-12" style="    margin-top: 15px;border-top: 1px solid #ddd;">
+                            <div class="col-sm-3" style="padding: 15px;margin-top: 5px;border-right: 1px solid #ccc;">
+                                <div style="float: left">
+                                    患病概率：
+                                </div>
+                                <div class="progress" style="float: right;margin: 0; width: 190px;">
+                                    <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar"
+                                         style="min-width: 2em;" ms-css-width="rate">
+                                        {{probability|number(3)}}%
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6" style="padding: 15px;margin-top: 5px;">
+                                <b><p>患病概率为：<span style="color: #d9534f"> {{probability|number(3)}}%</span>，很大可能性患病，请及时入院深入检查以及预防，切勿错过最佳诊治时间！！！</p></b>
+                            </div>
+                            <div class="col-sm-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="../../../js/sys/diagnose/list.js"></script>

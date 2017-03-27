@@ -139,20 +139,20 @@ function closeAllTip() {
  * @return {string}
  */
 avalon.filters.TORFFilter = function (value, args, args2) {
-    return value == true ? "<i class='fa fa-check' style='font-size:20px;color: #2def79'></i>":"<i class='fa fa-times' style='font-size: 20px;color: #ff4b5a'></i>";
+    return value == true ? "<i class='fa fa-check' style='font-size:20px;color: #4eef69'>&nbsp;Yes</i>":"<i class='fa fa-times' style='font-size: 20px;color: #ff4b5a'>&nbsp;No</i>";
 };
 avalon.filters.statusFilter = function (value, args, args2) {
-    return value == 0 ? "<font style='color: #2def79'>Enabled</font>" : "<font style='color: #ff4b5a'>Disabled</font>";
+    return value == 0 ? "<span style='color: #4eef69'><b>Enabled</b></span>" : "<span style='color: #ff4b5a'><b>Disabled</b></span>";
 };
 
 avalon.filters.genderFilter = function (value, args, args2) {
-    return value == 0 ? "<font style='color: #38bbff'><i style='font-size:15px;margin-right:3px;' class='fa fa-mars-stroke'></i>man</font>" : "<font style='color: #f185b7'><i style='font-size:15px;margin-right:3px;' class='fa fa-venus'></i>woman</font>";
+    return value == 0 ? "<span style='color: #38bbff'><i style='font-size:15px;margin-right:3px;' class='fa fa-mars-stroke'></i>man</span>" : "<span style='color: #f185b7'><i style='font-size:15px;margin-right:3px;' class='fa fa-venus'></i>woman</span>";
 };
 avalon.filters.isSickenFilter = function (value, args, args2) {
     if(value == 0){
         return "<font style='color: #ff4b5a'><i style='font-size:15px;margin-right:3px;' class='fa fa-times'></i>否</font>";
     } else if(value ==1){
-        return "<font style='color: #2def79'><i style='font-size:15px;margin-right:3px;' class='fa fa-check'></i>是</font>";
+        return "<font style='color: #4eef69'><i style='font-size:15px;margin-right:3px;' class='fa fa-check'></i>是</font>";
     } else if(value == 2){
         return "<font style='color: #ef973f'><i style='font-size:15px;margin-right:3px;' class='fa fa-exclamation-triangle'></i>不确定</font>";
     }

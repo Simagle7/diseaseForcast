@@ -107,8 +107,8 @@ ace.load_ajax_scripts(scripts, function () {
             },
 
             //设置角色
-            setRole: function (id) {
-                ROOT.openDialog("/sys/user/setRole.html", {}, "查看用户", "650", "350", function () {
+            setRole: function (uid) {
+                ROOT.openDialog("/sys/user/setRole.html", {uid:uid}, "设置角色", "650", "350", function () {
                     vm.clear();    //重置
                 });
             },

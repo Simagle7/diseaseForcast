@@ -12,7 +12,7 @@
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <span class="span-1"><b><i class="fa fa-users"></i></b></span>
+                    <span class="span-1"><b><i class="fa fa-th-large"></i></b></span>
                     <div>
                         <label>上级模块：<select name="code" ms-duplex="moduleCode">
                             <option value="0">请选择</option>
@@ -56,11 +56,11 @@
                                     <td>{{el.isMenu|TORFFilter|html}}</td>
                                     <td>{{el.fullName|fullNameFilter}}</td>
                                     <td>{{el.status|statusFilter|html}}</td>
-                                    <td>
-                                        <input name="" type="button" ms-click="edit(el.id)" value="修改"/>
-                                        <input name="" type="button" value="启用" ms-if="el.status == 1" ms-click="disableOrEnable(0,el.id,0)"/>
-                                        <input name="" type="button" value="停用" ms-if="el.status == 0" ms-click="disableOrEnable(1,el.id,1)"/>
-                                        <input name="" type="button" value="删除" ms-if="el.status == 1" ms-click="deleteOne(el.id)"/>
+                                    <td class="table_btn">
+                                        <a href="javascript:void(0);" ms-click="edit(el.id)"><i class="fa fa-pencil-square-o"></i>修改</a>
+                                        <a href="javascript:void(0);" ms-if="el.status == 1" ms-click="deleteOne(el.id)"><i class="iconfont icon-shanchu"></i>删除</a>
+                                        <a href="javascript:void(0);" ms-if="el.status == 1" ms-click="disableOrEnable(0,el.id,1)"><i class="fa fa-play"></i>启用</a>
+                                        <a href="javascript:void(0);" ms-if="el.status == 0" ms-click="disableOrEnable(1,el.id,0)"><i class="fa fa-stop"></i>停用</a>
                                     </td>
                                 </tr>
                             </table>

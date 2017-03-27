@@ -6,11 +6,11 @@ $(function() {
     //表单校验
     var validator = $("#addForm").validate({
         rules: {
-            type: {required: true, min: 0}
+            type: {required: true}
 
         },
         messages: {
-            username: {required: "必填", maxlength: "请选择一项模板"}
+            username: {required: "必填"}
         },
         errorPlacement: errorPlacement,
         success: "valid"
@@ -18,11 +18,12 @@ $(function() {
 
     var vm = avalon.define({
         $id: "selectModel",
-        type:0,
+        // type:0,
+        type:null,
         save: function () {
             if (validator.form()) {
                 $.ajax({
-                    url: "/doc/excel/"+type+".xlxs",
+                    url: "/doc/excel/"+vm.type+".xlxs",
                     type: "GET",
                     beforeSend: function () {
                         ROOT.openLoading();

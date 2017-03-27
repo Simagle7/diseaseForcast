@@ -18,7 +18,7 @@
                         <th width="20%"><span>*</span>账号：</th>
                         <td width="30"><input type="text" ms-duplex-string="data.username" readonly></td>
                         <th width="20%"><span>*</span>创建时间：</th>
-                        <td width="30%">{{data.createDate|date("yyyy-mm-dd")}}</td>
+                        <td width="30%">{{data.createDate|date("yyyy-MM-dd")}}</td>
                     </tr>
 
                     <tr>
@@ -36,8 +36,8 @@
                         <td width="30%"><input type="text" name="age" ms-duplex-number="data.age"></td>
                         <th width="20%"><span>*</span>性别：</th>
                         <td width="30">
-                            <input type="radio" name="sex" value="0" ms-duplex-number="data.sex">&nbsp;男&nbsp;&nbsp;
-                            <input type="radio" name="sex" value="1" ms-duplex-number="data.sex">&nbsp;女
+                            <input type="radio" name="sex" value="false" ms-duplex-number="data.sex">&nbsp;男&nbsp;&nbsp;
+                            <input type="radio" name="sex" value="true" ms-duplex-number="data.sex">&nbsp;女
                         </td>
                     </tr>
                     <tr>

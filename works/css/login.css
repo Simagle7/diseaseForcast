@@ -27,7 +27,7 @@ body{ width:100%; height:100%;position:relative; }
 
 /*--顶部 logo--*/
 .head_warp{ height:58px; background:#f6fbf9}
-.logo_box{ width:950px; margin:auto; padding-top:10px; font-size:18px; color:#777;text-align: left;}
+.logo_box{ width:950px; margin:auto; padding-top:10px; font-size:18px; color:#00a364;text-align: left;}
 .logo_box img{ margin-right:8px; vertical-align:middle}
 
 /*--顶部 登录--*/

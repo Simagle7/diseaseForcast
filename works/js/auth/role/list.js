@@ -92,14 +92,14 @@ ace.load_ajax_scripts(scripts, function () {
 
             //添加
             add: function () {
-                ROOT.openDialog("/auth/role/add.html", {}, "添加用户", "650", "350", function () {
+                ROOT.openDialog("/auth/role/add.html", {}, "添加角色", "650", "350", function () {
                     vm.clear();    //重置
                 });
             },
 
             //修改
             edit: function (id) {
-                ROOT.openDialog("/auth/role/edit.html", {id: id}, "查看用户", "650", "350", function () {
+                ROOT.openDialog("/auth/role/edit.html", {id: id}, "修改角色", "650", "350", function () {
                     vm.clear();    //重置
                 });
             },

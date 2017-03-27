@@ -7,7 +7,7 @@ var scripts = [null];
 
 ace.load_ajax_scripts(scripts, function () {
     //对需要权限控制的元素进行渲染控制
-    // $('a[ac-authCode],input[ac-authCode]').authController({moduleUrl:'/df/admin/sys/specimen'});
+    $('a[ac-authCode],input[ac-authCode]').authController({moduleUrl:'/df/admin/sys/specimen'});
     avalon.ready(function () {
         var vm = avalon.define({
             $id: "listPatient",
@@ -96,14 +96,14 @@ ace.load_ajax_scripts(scripts, function () {
 
             //添加
             add: function () {
-                ROOT.openDialog("/sys/specimen/add.html", {}, "添加用户", "650", "350", function () {
+                ROOT.openDialog("/sys/specimen/add.html", {}, "添加病人", "650", "350", function () {
                     vm.clear();    //重置
                 });
             },
 
             //修改
             edit: function (id) {
-                ROOT.openDialog("/sys/specimen/edit.html", {id: id}, "查看用户", "650", "350", function () {
+                ROOT.openDialog("/sys/specimen/edit.html", {id: id}, "查看病人", "650", "350", function () {
                     vm.clear();    //重置
                 });
             },

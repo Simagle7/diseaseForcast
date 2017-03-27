@@ -125,7 +125,7 @@ ace.load_ajax_scripts(scripts, function () {
 
             //批量删除
             deleteBatch: function () {
-                layer.confirm('确定要删除所选模块？', {icon: 2},function (index) {
+                layer.confirm('确定要删除该模块？该操作会删除该模块下所有的子模块和操作', {icon: 2},function (index) {
                     var ids = [];
                     vm.data.forEach(function (el) {
                         if (el.checked) {
@@ -158,7 +158,7 @@ ace.load_ajax_scripts(scripts, function () {
 
             //单个删除
             deleteOne: function (id) {
-                layer.confirm('确定要删除该模块？', {icon: 2}, function (index) {
+                layer.confirm('确定要删除该模块？该操作会删除该模块下所有的子模块和操作', {icon: 2}, function (index) {
                     $.ajax({
                         url: "/cn/df/authModule/deleteOne",
                         type: "GET",
@@ -186,7 +186,7 @@ ace.load_ajax_scripts(scripts, function () {
             disableOrEnable: function (status, id, flag) {
                 var action = flag === 1 ? "停用" : "启用";
                 var icon = flag === 1 ? 5 : 6;
-                layer.confirm('确定要' + action + '该模块！', {icon: icon}, function (index) {
+                layer.confirm('确定要' + action + '该模块！该操作会'+action+"该模块下所有的子模块和操作", {icon: icon}, function (index) {
                     $.ajax({
                         url: "/cn/df/authModule/disableOrEnable",
                         type: "POST",
